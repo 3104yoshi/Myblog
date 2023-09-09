@@ -9,7 +9,7 @@
       <label for="password">Password:</label>
       <input type="password" id="password" name="password" required>
 
-      <input type="submit" value="Login" id="login">
+      <input type="submit" value="Login" id="login-button">
     </form>
     <div id="auth-signup">
       <a href="/auth/Signup">Signupへ</a>
@@ -56,21 +56,20 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-input[type="submit"]:hover {
-  background-color: #45a049;
-}
-
 form {
   margin: 20px;
 }
 
-#login {
-  background-color: #823df2;
+#login-button {
+  background-color: #45a049;
+}
+
+#login-button:hover {
+  background-color: #3c8942;
 }
 
 #auth-signup {
   background-color: white;
-  color: #823df2;
   text-align: center;
 }
 

@@ -3,6 +3,7 @@ import HomeView from "../views/HomeView.vue";
 import CanSignupView from "../views/CanSignupView.vue";
 import NotFoundView from "../views/NotFoundView.vue";
 import AuthView from "../views/AuthView.vue";
+import PostView from "../views/PostView.vue";
 
 const routes = [
   {
@@ -23,10 +24,9 @@ const routes = [
     props : (route) => ({ SignupStatus: route.params.SignupStatus }),
   },
   {
-    path: "/post/",
+    path: "/post",
     name: "post",
-    component: CanSignupView,
-    props : (route) => ({ SignupStatus: route.params.SignupStatus }),
+    component: PostView,
   },
   {
     path: "/*",

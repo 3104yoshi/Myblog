@@ -8,7 +8,7 @@
     <label for="password">Password:</label>
     <input type="password" id="password" name="password" required>
 
-    <input type="submit" value="Sign up" id="signup">
+    <input type="submit" value="Sign up" id="signup-button">
   </form>
   <div id="auth-login">
     <a href="/auth/Login" >Loginへ</a>
@@ -46,37 +46,22 @@ input[type="password"] {
   margin-bottom: 10px;
 }
 
-input[type="submit"] {
-  width: 100%;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-input[type="submit"]:hover {
-  background-color: #45a049;
-}
-
 form {
   margin: 20px;
+}
+
+#signup-button {
+  background-color: #823df2;
+}
+
+#signup-button:hover {
+  background-color: #6e2cc4;
 }
 
 #auth-login {
   background-color: white;
   color: #823df2;
   text-align: center;
-}
-
-#signup {
-  background-color: #823df2;
-}
-
-.canLogin {
-  color: crimson;
-  margin-top: 20px;
-  margin-bottom: 20px;
 }
 
 </style>
