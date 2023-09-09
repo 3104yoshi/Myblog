@@ -1,15 +1,11 @@
+<script setup>
+const article = defineProps(['title', 'body'])
+
+</script>
+
 <template>
-    <header>
-      <router-link v-bind:to="{ name: 'home' }">
-        <img src="../assets/logo.jpg" alt="Logo" />
-      </router-link>
-    </header>
-  </template>
-  
-  
-  <style>
-  img {
-    width: 80px;
-  }
-  
-  </style>
+    <div class="article">
+        <p>{{ article.title }}</p>
+        <p>{{ article.body }}</p>
+    </div>
+</template>
