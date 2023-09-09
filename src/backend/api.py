@@ -8,3 +8,21 @@ api = Blueprint('api', __name__)
 def hello():
     response = {'msg': 'world'}
     return jsonify(response)
+
+@api.route('/articles')
+def articles():
+    articles = [
+    {
+        "title": 'api1',
+        "body": 'api1'
+    },
+    {
+        "title": 'api2',
+        "body": 'api2'
+    },
+    {
+        "title": 'api3',
+        "body": 'api3'
+    }
+    ]
+    return jsonify(articles)
