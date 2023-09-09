@@ -1,19 +1,15 @@
 <template>
   <div class="container">
-    <h2>Login</h2>
-    <form action="login" method="POST">
-      <div class="canLogin"></div>
-      <label  for="username">Username:</label>
-      <input type="text" id="username" name="username" required>
+    <h2>新しい記事の作成</h2>
+    <form action="post" method="POST">
+      <label  for="article-title">タイトル</label>
+      <input type="text" id="article-title" name="title">
 
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required>
+      <label for="article-body">本文</label>
+      <textarea id="article-body" name="title" required></textarea>
 
-      <input type="submit" value="Login" id="login">
+      <input type="submit" value="記事を作成する" id="post-article">
     </form>
-    <div id="auth-signup">
-      <a href="/auth/Signup">Signupへ</a>
-    </div>
   </div>
 </template>
 
@@ -23,9 +19,8 @@ body {
 }
 
 .container {
-  width: 300px;
-  margin: 0 auto;
-  margin-top: 100px;
+  width: 90%;
+  margin: auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -40,14 +35,20 @@ label {
   margin-bottom: 5px;
 }
 
-input[type="text"],
-input[type="password"] {
+input[type="text"] {
   width: 100%;
   padding: 5px;
   margin-bottom: 10px;
 }
 
+#article-body {
+  width: 100%;
+  height: 800px;
+  resize: none;
+}
+
 input[type="submit"] {
+  margin-top: 20px;
   width: 100%;
   color: white;
   padding: 10px;
@@ -56,22 +57,16 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-input[type="submit"]:hover {
-  background-color: #45a049;
-}
-
 form {
   margin: 20px;
 }
 
-#login {
-  background-color: #823df2;
+#post-article {
+  background-color: #1e8ba4;
 }
 
-#auth-signup {
-  background-color: white;
-  color: #823df2;
-  text-align: center;
+#post-article:hover {
+  background-color: #1b6e82;
 }
 
 </style>
