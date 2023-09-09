@@ -1,0 +1,9 @@
+*
+!src/
+!docker-compose.yaml
+!setup.sh
+!/postgres
+/postgres/*
+!/postgres/init
+!/postgres/init/*.sql
+!.gitignore
