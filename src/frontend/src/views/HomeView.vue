@@ -4,12 +4,6 @@ import ArticleComponent from '../components/ArticleComponent.vue';
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
 
-// await axios.get('http://127.0.0.1/api/articles')
-//   .then(response => (articles = response.data))
-//   .catch(error => {
-//     console.log(error);
-//   });
-
 const articles = ref(null);
 onMounted(async () => {
   try {
@@ -31,7 +25,7 @@ onMounted(async () => {
   <HeaderComponent/>
   <div id="body">
     <ul id="articles">
-      <ArticleComponent v-for="article in articles" :key="article.title" :title="article.title" :body="article.body" class="article"/>
+      <ArticleComponent v-for="article in articles" :key="article.title" :title="article.title" :content="article.content" class="article"/>
     </ul>
   </div>
 </template>

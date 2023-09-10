@@ -1,4 +1,4 @@
-from flask import Blueprint, app, jsonify, render_template
+from flask import Blueprint, jsonify
 from flask_login import login_required
 
 api = Blueprint('api', __name__)
@@ -14,15 +14,15 @@ def articles():
     articles = [
     {
         "title": 'api1',
-        "body": 'api1'
+        "content": 'api1'
     },
     {
         "title": 'api2',
-        "body": 'api2'
+        "content": 'api2'
     },
     {
         "title": 'api3',
-        "body": 'api3'
+        "content": 'api3'
     }
     ]
     return jsonify(articles)
