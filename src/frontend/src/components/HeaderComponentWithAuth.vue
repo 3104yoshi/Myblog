@@ -6,9 +6,9 @@
       </router-link>
     </div>
     <div class="header-item">
-      <router-link v-bind:to="{ name : 'post' }">
+      <form action="/post">
         <button class="header-button" id="post-button">post</button>
-      </router-link>
+      </form>
     </div>
     <div class="header-item">
       <router-link v-bind:to="{ name : 'auth', params : { AuthType : 'Login' } }" >

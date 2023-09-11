@@ -5,7 +5,7 @@
 /postgres/*
 !/postgres/init
 !/postgres/init/*.sql
-
+src/dist/*
 
 .env
 config.ini

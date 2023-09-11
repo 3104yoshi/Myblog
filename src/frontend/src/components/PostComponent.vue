@@ -1,12 +1,12 @@
 <template>
   <div class="container">
     <h2>新しい記事の作成</h2>
-    <form action="post" method="POST">
+    <form action="/post" method="POST">
       <label  for="article-title">タイトル</label>
       <input type="text" id="article-title" name="title">
 
-      <label for="article-body">本文</label>
-      <textarea id="article-body" name="title" required></textarea>
+      <label for="article-content">本文</label>
+      <textarea id="article-content" name="content" required></textarea>
 
       <input type="submit" value="記事を作成する" id="post-article">
     </form>
@@ -41,7 +41,7 @@ input[type="text"] {
   margin-bottom: 10px;
 }
 
-#article-body {
+#article-content {
   width: 100%;
   height: 800px;
   resize: none;
