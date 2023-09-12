@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import CanSignupView from "../views/CanSignupView.vue";
+import CanLoginView from "../views/CanLoginView.vue";
 import NotFoundView from "../views/NotFoundView.vue";
 import AuthView from "../views/AuthView.vue";
 import PostView from "../views/PostView.vue";
@@ -29,6 +30,12 @@ const routes = [
     name: "CanSignup",
     component: CanSignupView,
     props : (route) => ({ SignupStatus: route.params.SignupStatus }),
+  },
+  {
+    path: "/auth/canLogin/:LoginStatus",
+    name: "CanLogin",
+    component: CanLoginView,
+    props : (route) => ({ SignupStatus: route.params.LoginStatus }),
   },
   {
     path: "/post",

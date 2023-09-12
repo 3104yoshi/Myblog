@@ -23,7 +23,7 @@ def login():
     if len(fetchedUser) == 1:
         user = User(username)
         flask_login.login_user(user)
-        return redirect(url_for('api.hello'))
+        return redirect(url_for('auth.canLogin', canLogin='ログインに成功しました'))
 
     return render_template('index.html')
 
@@ -49,6 +49,10 @@ def signup():
 @authentification.route('/canSignup/<canSignup>/', methods=['GET', 'POST'])
 def canSignup(canSignup):
     return render_template('index.html', signupStatus=canSignup)
+
+@authentification.route('/canLogin/<canLogin>/', methods=['GET', 'POST'])
+def canLogin(canLogin):
+    return render_template('index.html', loginStatus=canLogin)
 
 
 @authentification.route('/logout', methods=['GET', 'POST'])

@@ -5,12 +5,6 @@ from db.accessor.articlesAccessor import articlesAccessor
 
 api = Blueprint('api', __name__)
 
-@api.route('/hello')
-@login_required
-def hello():
-    response = {'msg': 'world'}
-    return jsonify(response)
-
 @api.route('/articles')
 def articles():
     articles = []
