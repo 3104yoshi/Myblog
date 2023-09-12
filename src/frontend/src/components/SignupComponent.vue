@@ -11,7 +11,7 @@
     <input type="submit" value="Sign up" id="signup-button">
   </form>
   <div id="auth-login">
-    <a href="/auth/Login" >Loginへ</a>
+    <a href="/auth/login" >Loginへ</a>
   </div>
 </div>
 </template>

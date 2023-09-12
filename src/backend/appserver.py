@@ -49,6 +49,7 @@ def post():
         try:
             articlesAccessor.addArticle(data)
         except Exception as e:
+            print(e)
             return redirect(url_for('canPost', postStatus="投稿に失敗しました"))
         return redirect(url_for('canPost', postStatus="投稿に成功しました"))
     else:

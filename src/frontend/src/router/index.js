@@ -5,6 +5,7 @@ import NotFoundView from "../views/NotFoundView.vue";
 import AuthView from "../views/AuthView.vue";
 import PostView from "../views/PostView.vue";
 import CanPostView from "../views/CanPostView.vue";
+import LogoutView from "../views/LogoutView.vue";
 
 const routes = [
   {
@@ -17,6 +18,11 @@ const routes = [
     name: "auth",
     component: AuthView,
     props : (route) => ({ AuthType: route.params.AuthType }),
+  },
+  {
+    path: "/auth/logout",
+    name: "logout",
+    component: LogoutView,
   },
   {
     path: "/auth/CanSignup/:SignupStatus",

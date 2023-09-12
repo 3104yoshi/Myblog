@@ -11,7 +11,7 @@ defineOptions({
 
 const route = useRoute()
 const AuthType = route.params.AuthType
-let isLogin = AuthType === 'Login'
+let isLogin = AuthType === 'login'
 </script>
 
 <template>

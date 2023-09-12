@@ -1,3 +1,23 @@
+<script setup>
+import axios from 'axios';
+import { onMounted, ref } from 'vue';
+
+const isLogin = ref(null);
+onMounted(async () => {
+  try {
+    const response = await axios.get('http://127.0.0.1/auth/isLogin')
+    if (response.status === 200) {
+      isLogin.value = response.data;
+    }
+    else {
+      console.error('Failed to fetch data:', response.status, response.statusText);
+    }
+  }
+  catch (error) {
+    console.log(error);
+  }});
+</script>
+
 <template>
   <header class="header">
     <div class="header-item">
@@ -10,15 +30,20 @@
         <button class="header-button" id="post-button">post</button>
       </form>
     </div>
-    <div class="header-item">
-      <router-link v-bind:to="{ name : 'auth', params : { AuthType : 'Login' } }" >
+    <div class="header-item" v-if="!isLogin">
+      <router-link v-bind:to="{ name : 'auth', params : { AuthType : 'login' } }" >
         <button class="header-button" id="login-button">Login</button>
       </router-link>
     </div>
-    <div class="header-item">
-      <router-link v-bind:to="{ name : 'auth', params : { AuthType : 'Signup' } }" >
+    <div class="header-item" v-if="!isLogin">
+      <router-link v-bind:to="{ name : 'auth', params : { AuthType : 'signup' } }" >
         <button class="header-button" id="signup-button">Signup</button>
       </router-link>
+    </div>
+    <div class="header-item" v-if="isLogin">
+      <form action="/auth/logout">
+        <button class="header-button" id="logout-button">Logout</button>
+      </form>
     </div>
   </header>
 </template>
@@ -76,5 +101,13 @@
 
 #signup-button:hover {
   background-color: #6e2cc4;
+}
+
+#logout-button {
+  background-color: #970b76;
+}
+
+#logout-button:hover {
+  background-color: #7a0a5e;
 }
 </style>

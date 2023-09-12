@@ -1,6 +1,5 @@
-from distutils.util import strtobool
 from flask import Blueprint, jsonify, redirect, render_template, request, url_for
-from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user
+from flask_login import login_required, logout_user
 import flask_login
 from db.accessor.userCredentialAccessor import userCredentialAccessor
 from user import User
@@ -56,4 +55,8 @@ def canSignup(canSignup):
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('auth.login'))
+    return render_template('index.html')
+
+@authentification.route('/isLogin/', methods=['GET'])
+def isLogin():
+    return jsonify(flask_login.current_user.is_authenticated)
