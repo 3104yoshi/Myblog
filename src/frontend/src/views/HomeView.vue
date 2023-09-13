@@ -23,28 +23,29 @@ onMounted(async () => {
 
 <template>
   <HeaderComponent/>
-  <div id="body">
-    <ul id="articles">
-      <router-link v-bind:to="{ name: 'article', params: { title: article.title, content: article.content } }" v-for="article in articles" :key="article.title">
-        <ArticleHeadlineComponent :title="article.title" :content="article.content" class="article"/>
-      </router-link>
-    </ul>
-  </div>
+  <ul id="articles">
+    <ArticleHeadlineComponent v-for="article in articles" :key="article.title" :title="article.title" :content="article.content" class="article-headline"/>
+  </ul>
 </template>
 
 <style>
 #articles {
-  justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.article {
-  display: inline-block;
+.article-headline {
+  color: #000;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 370px;
+  height: 370px;
   margin: 20px;
-  padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: white;
+  background-color: rgb(247, 254, 248);
   box-shadow: 0 0 5px #ccc;
 }
 

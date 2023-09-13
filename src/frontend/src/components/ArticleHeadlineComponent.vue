@@ -1,20 +1,23 @@
 <script setup>
-const article = defineProps(['title'])
+const article = defineProps(['title', 'content'])
 
 </script>
 
 <template>
-    <div class="article">
-        <p>{{ article.title }}</p>
+    <div>
+        <router-link v-bind:to="{ name: 'article', params: { title: article.title, content: article.content } }" class="article-link">
+            <div class="article-title">{{ article.title }}</div>
+        </router-link>
     </div>
 </template>
 
 <style>
-.article {
-    color: #000;
-    border: 1px solid black;
-    padding: 10px;
-    margin: 10px;
-    text-align: center;
+
+.article-link {
+    width: fit-content;
+}
+
+.article-title {
+    display: inline-block;
 }
 </style>
