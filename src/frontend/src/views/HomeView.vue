@@ -1,6 +1,6 @@
 <script setup>
 import HeaderComponent from '../components/HeaderComponentWithAuth.vue';
-import ArticleComponent from '../components/ArticleComponent.vue';
+import ArticleHeadlineComponent from '../components/ArticleHeadlineComponent.vue';
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
 
@@ -25,7 +25,9 @@ onMounted(async () => {
   <HeaderComponent/>
   <div id="body">
     <ul id="articles">
-      <ArticleComponent v-for="article in articles" :key="article.title" :title="article.title" :content="article.content" class="article"/>
+      <router-link v-bind:to="{ name: 'article', params: { title: article.title, content: article.content } }" v-for="article in articles" :key="article.title">
+        <ArticleHeadlineComponent :title="article.title" :content="article.content" class="article"/>
+      </router-link>
     </ul>
   </div>
 </template>

@@ -7,6 +7,7 @@ import AuthView from "../views/AuthView.vue";
 import PostView from "../views/PostView.vue";
 import CanPostView from "../views/CanPostView.vue";
 import LogoutView from "../views/LogoutView.vue";
+import ArticleView from "../views/ArticleView.vue";
 
 const routes = [
   {
@@ -47,6 +48,12 @@ const routes = [
     name: "canPost",
     component: CanPostView,
     props : (route) => ({ PostStatus: route.params.PostStatus }),
+  },
+  {
+    path: "/article/:title/:content",
+    name: "article",
+    component: ArticleView,
+    props : (route) => ({ title: route.params.title, content: route.params.content }),
   },
   {
     path: "/*",
