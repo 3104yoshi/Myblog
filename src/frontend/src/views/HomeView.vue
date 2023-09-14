@@ -1,6 +1,6 @@
 <script setup>
 import HeaderComponent from '../components/HeaderComponentWithAuth.vue';
-import ArticleHeadlineComponent from '../components/ArticleHeadlineComponent.vue';
+import PagingComponent from '../components/PagingComponent.vue';
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
 
@@ -23,9 +23,7 @@ onMounted(async () => {
 
 <template>
   <HeaderComponent/>
-  <ul id="articles">
-    <ArticleHeadlineComponent v-for="article in articles" :key="article.title" :title="article.title" :content="article.content" class="article-headline"/>
-  </ul>
+  <PagingComponent v-if="articles" :articles="articles" :maxArticlesPerPage="6" />
 </template>
 
 <style>
