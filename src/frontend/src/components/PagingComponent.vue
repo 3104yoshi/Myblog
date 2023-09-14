@@ -8,7 +8,7 @@ const currentPage = ref(1);
 
 const articlesOnCurrentPage = computed(() => {
   const startIndex = (currentPage.value - 1) * props.maxArticlesPerPage;
-  const endIndex = startIndex + props.maxArticlesPerPage;
+  const endIndex = Math.min(props.articles.length ,currentPage.value * props.maxArticlesPerPage);
   return props.articles.slice(startIndex, endIndex);
 });
 </script>
@@ -23,6 +23,5 @@ const articlesOnCurrentPage = computed(() => {
         <button @click="currentPage = page" class="paging-button">{{ page }}</button>
       </li>
     </div>
-    {{ currentPage }}
   </div>
 </template>
