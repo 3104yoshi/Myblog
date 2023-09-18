@@ -23,7 +23,7 @@ onMounted(async () => {
 
 <template>
   <HeaderComponent/>
-  <PagingComponent v-if="articles" :articles="articles" :maxArticlesPerPage="6" />
+  <PagingComponent v-if="articles" :articles="articles" :maxArticlesPerPage="8" />
 </template>
 
 <style>
