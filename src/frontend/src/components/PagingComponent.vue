@@ -33,30 +33,7 @@ const moveCurrentPage = (movedPage) => {
       <ArticleHeadlineComponent v-for="article in articlesOnCurrentPage" :key="article.title" :title="article.title" :content="article.content" class="article-headline"/>
     </ul>
     <div id="footer">
-      <ul class="paging-footer">
         <PagenationComponent :currentPage="currentPage" :pageCount="pageCount" :displayPageNumbers="displayPageNumbers" @moveCurrentPage="moveCurrentPage"/>
-        <!-- <li v-if="currentPage > 1">
-          <button @click="currentPage = 1" class="paging-button">&lt;&lt;</button>
-        </li>
-        <li v-if="currentPage > 1">
-          <button @click="currentPage--" class="paging-button">&lt;</button>
-        </li>
-        <li v-if="currentPage > 3">
-          <div> ...</div>
-        </li>
-        <li v-for="page in displayPageNumbers" :key="page" class="paging-item" :class="{selectedItem : page === currentPage}">
-          <button @click="currentPage = page" class="paging-button">{{ page }}</button>
-        </li>
-        <li v-if="pageCount - currentPage > 2">
-          <div>... </div>
-        </li>
-        <li v-if="currentPage < pageCount">
-          <button @click="currentPage++" class="paging-button">&gt;</button>
-        </li>
-        <li v-if="currentPage < pageCount">
-          <button @click="currentPage = pageCount" class="paging-button">&gt;&gt;</button>
-        </li> -->
-      </ul>
     </div>
   </div>
 </template>
