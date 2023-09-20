@@ -1,5 +1,6 @@
 <script setup>
 import ArticleHeadlineComponent from '../components/ArticleHeadlineComponent.vue';
+import PagenationComponent from './PagenationComponent.vue';
 import { ref, computed } from 'vue';
 
 const props = defineProps(['articles', 'maxArticlesPerPage'])
@@ -20,6 +21,10 @@ const displayPageNumbers = computed(() => {
   return pageNumbers;
 });
 
+const moveCurrentPage = (movedPage) => {
+  currentPage.value = movedPage;
+}
+
 </script>
 
 <template>
@@ -29,7 +34,8 @@ const displayPageNumbers = computed(() => {
     </ul>
     <div id="footer">
       <ul class="paging-footer">
-        <li v-if="currentPage > 1">
+        <PagenationComponent :currentPage="currentPage" :pageCount="pageCount" :displayPageNumbers="displayPageNumbers" @moveCurrentPage="moveCurrentPage"/>
+        <!-- <li v-if="currentPage > 1">
           <button @click="currentPage = 1" class="paging-button">&lt;&lt;</button>
         </li>
         <li v-if="currentPage > 1">
@@ -49,7 +55,7 @@ const displayPageNumbers = computed(() => {
         </li>
         <li v-if="currentPage < pageCount">
           <button @click="currentPage = pageCount" class="paging-button">&gt;&gt;</button>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>
