@@ -23,13 +23,15 @@ onMounted(async () => {
 
 <template>
   <HeaderComponent/>
-  <PagingComponent v-if="articles" :articles="articles" :maxArticlesPerPage="1" />
+  <PagingComponent v-if="articles" :articles="articles" :maxArticlesPerPage="8" />
 </template>
 
 <style>
 #articles {
   display: flex;
   flex-wrap: wrap;
+  padding: 0 auto;
+  margin: 0 auto;
 }
 
 .article-headline {
@@ -38,8 +40,9 @@ onMounted(async () => {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 370px;
-  height: 370px;
+  width: calc(100% / 4 - 50px);
+  min-width: 300px;
+  height: 300px;
   margin: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
