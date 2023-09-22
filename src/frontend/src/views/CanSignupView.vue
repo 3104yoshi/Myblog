@@ -15,6 +15,6 @@ const SignupStatus = route.params.SignupStatus
   <HeaderComponent/>
     <div class="container">
     <h2>{{ SignupStatus }}</h2>
-    <a href="/auth/Login">Loginページに戻る</a>
+    <a href="/auth/Login">ログインページに戻る</a>
   </div>
 </template>
