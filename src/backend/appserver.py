@@ -42,10 +42,9 @@ def post():
     if request.method == 'GET':
         return render_template('index.html')
     elif request.method == 'POST':
-        articleId = articlesAccessor.getNextId()
         title = request.form.get('title')
         content = request.form.get('content')
-        data = article(articleId, title, content)
+        data = article(title, content)
         try:
             articlesAccessor.addArticle(data)
         except Exception as e:

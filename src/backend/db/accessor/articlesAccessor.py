@@ -18,14 +18,8 @@ class articlesAccessor:
             cursor = connection.cursor()
             cursor.execute('SELECT * FROM Articles')
             return cursor.fetchall()
-    
-    def getNextId():
-        with getconnection() as connection:
-            cursor = connection.cursor()
-            cursor.execute('SELECT MAX(ArticleId) FROM Articles')
-            return cursor.fetchone()[0] + 1
         
     def addArticle(article):
         with getconnection() as connection:
             cursor = connection.cursor()
-            cursor.execute('INSERT INTO Articles VALUES (%s, %s, %s, %s)', (article.articleId, article.title, article.content, article.updateDate))
+            cursor.execute('INSERT INTO Articles (title, content, updateDate) VALUES (%s, %s, %s)', (article.title, article.content, article.updateDate))

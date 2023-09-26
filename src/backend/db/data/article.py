@@ -8,7 +8,7 @@ class article:
     content: str
     updateDate: datetime
 
-    def __init__(self, articleId, title, content):
+    def __init__(self, title, content, articleId=0):
         self.articleId = articleId
         self.title = title
         self.content = content
