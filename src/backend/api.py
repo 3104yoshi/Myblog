@@ -1,5 +1,4 @@
 from flask import Blueprint, jsonify
-from flask_login import login_required
 
 from db.accessor.articlesAccessor import articlesAccessor
 

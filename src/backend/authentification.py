@@ -18,9 +18,8 @@ def login():
     password = request.form.get('password')
 
     credential = userCredential(username, password)
-    fetchedUser = userCredentialAccessor.getUser(credential)
 
-    if len(fetchedUser) == 1:
+    if userCredentialAccessor.getUser(credential):
         user = User(username)
         flask_login.login_user(user)
         return redirect(url_for('auth.canLogin', canLogin='ログインに成功しました'))
@@ -37,8 +36,7 @@ def signup():
     password = request.form.get('password')
 
     credential = userCredential(username, password)
-    fetchedUser = userCredentialAccessor.checkUserIs(credential)
-    if len(fetchedUser) == 1:
+    if userCredentialAccessor.checkUserIs(credential):
         return redirect(url_for('auth.canSignup', canSignup="既に登録されているユーザー名です"))
 
     userCredentialAccessor.addUser(credential)
