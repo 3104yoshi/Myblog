@@ -1,6 +1,8 @@
 create table Users (
     UserName text primary key,
-    PassWord text not null,
+    PassWord bytea not null,
+    pass_nonce bytea not null,
+    pass_tag bytea not null,
     UpdateDate timestamp not null
 );
 
