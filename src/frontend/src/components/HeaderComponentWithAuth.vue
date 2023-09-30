@@ -56,13 +56,13 @@ onMounted(async () => {
   align-items: center;
 }
 
+.header-image {
+  width: 100px;
+}
+
 .header-item {
   margin-left: 10px;
   margin-right: 10px;
-}
-
-.header-image {
-  width: 60px;
 }
 
 .header .header-item:first-child {

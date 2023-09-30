@@ -22,7 +22,7 @@
 }
 
 .header-image {
-  width: 60px;
+  width: 100px;
 }
 
 .header .header-item:first-child {
