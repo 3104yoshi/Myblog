@@ -1,8 +1,4 @@
-# syntax=docker/dockerfile:1
-# FROM node:18-alpine
-FROM python:3.8
+FROM python:3.11.1
 COPY src/ ./src/
-RUN pip install flask_login
-RUN pip install psycopg2
-RUN pip install pycryptodome
+RUN pip install -r src/backend/requirements.txt
 CMD ["python", "src/backend/appserver.py"]
