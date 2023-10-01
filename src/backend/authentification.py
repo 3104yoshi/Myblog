@@ -1,3 +1,4 @@
+from distutils.util import strtobool
 from flask import Blueprint, jsonify, redirect, render_template, request, url_for
 from flask_login import login_required, logout_user
 import flask_login
@@ -22,9 +23,9 @@ def login():
     if userCredentialAccessor.getUser(credential):
         user = User(username)
         flask_login.login_user(user)
-        return redirect(url_for('auth.canLogin', canLogin='ログインに成功しました'))
+        return redirect(url_for('auth.canLogin', canLogin=True))
 
-    return render_template('index.html')
+    return redirect(url_for('auth.canLogin', canLogin=False))
 
 
 @authentification.route('/signup', methods=['GET', 'POST'])
@@ -37,11 +38,11 @@ def signup():
 
     credential = userCredential(username, password)
     if userCredentialAccessor.checkUserIs(credential):
-        return redirect(url_for('auth.canSignup', canSignup="既に登録されているユーザー名です"))
+        return redirect(url_for('auth.canSignup', canSignup=False))
 
     userCredentialAccessor.addUser(credential)
 
-    return redirect(url_for('auth.canSignup', canSignup="登録に成功しました"))
+    return redirect(url_for('auth.canSignup', canSignup=True))
 
 
 @authentification.route('/canSignup/<canSignup>/', methods=['GET', 'POST'])
@@ -51,7 +52,6 @@ def canSignup(canSignup):
 @authentification.route('/canLogin/<canLogin>/', methods=['GET', 'POST'])
 def canLogin(canLogin):
     return render_template('index.html', loginStatus=canLogin)
-
 
 @authentification.route('/logout', methods=['GET', 'POST'])
 @login_required

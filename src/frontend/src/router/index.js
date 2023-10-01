@@ -36,7 +36,7 @@ const routes = [
     path: "/auth/canLogin/:LoginStatus",
     name: "CanLogin",
     component: CanLoginView,
-    props : (route) => ({ SignupStatus: route.params.LoginStatus }),
+    props : (route) => ({ LoginStatus: route.params.LoginStatus }),
   },
   {
     path: "/post",

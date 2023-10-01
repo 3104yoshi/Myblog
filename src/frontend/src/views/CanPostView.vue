@@ -8,7 +8,7 @@ defineOptions({
 })
 
 const route = useRoute();
-const PostStatus = route.params.PostStatus
+const PostStatus = route.params.PostStatus.toLowerCase() === "true" ? "投稿しました" : "投稿に失敗しました";
 </script>
 
 <template>

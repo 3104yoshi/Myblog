@@ -3,7 +3,7 @@ import { useRoute } from "vue-router";
 import HeaderComponent from '../components/HeaderComponentLogoOnly.vue';
 
 const route = useRoute();
-const LoginStatus = route.params.LoginStatus
+const LoginStatus = route.params.LoginStatus.toLowerCase() === "true" ? "ログインしました" : "ログインに失敗しました";
 </script>
 
 <template>

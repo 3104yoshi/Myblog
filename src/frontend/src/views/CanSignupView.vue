@@ -8,7 +8,7 @@ defineOptions({
 })
 
 const route = useRoute();
-const SignupStatus = route.params.SignupStatus
+const SignupStatus = route.params.SignupStatus.toLowerCase() === "true" ? "登録しました" : "既に登録されているユーザー名です"
 </script>
 
 <template>
